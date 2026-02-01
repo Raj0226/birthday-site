@@ -4,23 +4,25 @@
 <title>Birthday Surprise 🎉</title>
 <style>
 body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Dancing Script', cursive; /* Aapne ye font select kiya hai */
-  text-align: center;
-  color: white; /* White text dark background par achha dikhta hai */
-  
-  /* FULL BACKGROUND SETTINGS */
-  background-size: cover; /* Isse image poori screen cover karegi */
-  background-position: center; /* Image hamesha center mein rahegi */
-  background-attachment: fixed; /* Background scroll nahi hoga */
-  background-repeat: no-repeat;
-  height: 100vh;
-  width: 100vw;
-  overflow: hidden; /* Extra scrollbar hatane ke liye */
-  
-  /* WHITE BACKGROUND PAR TEXT DIKHANE KE LIYE SHADOW */
-  text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000; 
+    margin: 0;
+    padding: 0;
+    font-family: 'Dancing Script', cursive;
+    text-align: center;
+    color: white;
+    
+    /* FULL BACKGROUND SETTINGS */
+    background-size: cover; /* Isse image poori screen cover karegi */
+    background-position: center; /* Image hamesha center mein rahegi */
+    background-attachment: fixed; /* Background scroll nahi hoga */
+    background-repeat: no-repeat; /* Isse image repeat nahi hogi */
+    
+    /* Screen ki poori height cover karne ke liye */
+    min-height: 100vh;
+    width: 100%;
+    
+    /* White background par text dikhane ke liye shadow */
+    text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000;
+} 
 }
 
 h1 {
@@ -183,6 +185,7 @@ function nextPage(current){
 </script>
 </body>
 </html>
+
 
 
 
