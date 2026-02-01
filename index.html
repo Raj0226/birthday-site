@@ -3,27 +3,31 @@
 <head>
 <title>Birthday Surprise 🎉</title>
 <style>
-body{
-  margin:0;
-  padding:0;
-  /* Text ko ubhaarne ke liye shadow add ki gayi hai */
-  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8); 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Dancing Script', cursive; /* Aapne ye font select kiya hai */
+  text-align: center;
+  color: white; /* White text dark background par achha dikhta hai */
+  
+  /* FULL BACKGROUND SETTINGS */
+  background-size: cover; /* Isse image poori screen cover karegi */
+  background-position: center; /* Image hamesha center mein rahegi */
+  background-attachment: fixed; /* Background scroll nahi hoga */
+  background-repeat: no-repeat;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden; /* Extra scrollbar hatane ke liye */
+  
+  /* WHITE BACKGROUND PAR TEXT DIKHANE KE LIYE SHADOW */
+  text-shadow: 2px 2px 4px #000, -2px -2px 4px #000, 2px -2px 4px #000, -2px 2px 4px #000; 
 }
 
 h1 {
-    font-family: 'Dancing Script', cursive; /* Quotes zaroor lagayein */
-    font-size: 2.8rem;
-    font-weight: 900;
-    color: #ffffff; /* Pure white color sabse bold dikhta hai */
-    
-    /* Text ke charo taraf black border (Stroke) */
-    -webkit-text-stroke: 1.5px black; 
-    
-    /* Pehle se geheri shadow */
-    text-shadow: 3px 3px 10px rgba(0, 0, 0, 1);
-    
-    margin-top: 60px;
-    text-align: center;
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-top: 100px;
+}
 }
 h1 {
   font-size: 2.8rem; /* Heading ka size bada rakha hai */
@@ -179,6 +183,7 @@ function nextPage(current){
 </script>
 </body>
 </html>
+
 
 
 
