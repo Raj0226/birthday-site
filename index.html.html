@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Birthday Surprise 🎉</title>
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: white;
+    background-size: cover;
+    background-position: center;
+    transition: background 1s ease-in-out;
+}
+
+#countdownBox { margin-top: 150px; }
+#timer { font-size: 40px; margin-top: 20px; }
+
+.page { display: none; margin-top: 80px; padding: 20px; }
+.page.active { display: block; }
+
+img.photo {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 20px;
+    margin-top: 20px;
+}
+
+img.balloon {
+    width: 120px;
+    margin-top: 30px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+img.balloon:hover { transform: scale(1.1); }
+</style>
+</head>
+
+<body>
+
+<audio id="music" loop>
+  <source src="birthday.mp3" type="audio/mpeg">
+</audio>
+
+<div id="countdownBox">
+    <h1>Birthday Surprise Unlocks In 🎁</h1>
+    <div id="timer">Loading...</div>
+</div>
+
+<div id="pages" style="display:none;"></div>
+
+<script>
+// ⏳ Timer setup
+// TESTING: website turant open ho
+const birthdayTime = new Date(new Date(2026,1,1,23,17,0).getTime(); // 5 sec from now
+
+const timer = document.getElementById("timer");
+const countdownBox = document.getElementById("countdownBox");
+const pagesBox = document.getElementById("pages");
+const music = document.getElementById("music");
+
+const interval = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = birthdayTime - now;
+
+    if (distance <= 0) {
+        clearInterval(interval);
+        countdownBox.style.display = "none";
+        pagesBox.style.display = "block";
+        music.play();
+        return;
+    }
+
+    const hours = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
+    const minutes = Math.floor((distance % (1000*60*60)) / (1000*60));
+    const seconds = Math.floor((distance % (1000*60)) / 1000);
+
+    timer.innerHTML = hours + "h " + minutes + "m " + seconds + "s";
+}, 1000);
+
+// 💌 20 messages
+const messages = [
+`Happy Birthday baby🎂
+Tum meri life ka sabse special insaan ho.
+Mujhe tumpe har din aur pyaar aata hai.
+Stay mine forever. ❤️`,
+`You are amazing ❤️
+Tum sirf mere boyfriend nahi.
+Mere best friend bhi ho.
+Tumhare bina sab boring lagta hai.`,
+`You make life beautiful 🌸
+Tum meri dua ka answer ho.
+Meri kismat ka best gift.
+Main tumse bohot pyaar karti hoon.`,
+`Tumhari smile mera favourite view hai.
+Tumhari baatein mera sukoon hain.
+Main bahut lucky hoon tumhe paakar.`,
+`Dream big 🌟
+Jab tum saath hote ho.
+To duniya perfect lagti hai.
+Tum meri sabse pyaari feeling ho.`,
+`You are special 💖
+Tum meri life ka best part ho.
+Meri har khushi tumse judi hai.
+Dil sirf tumhara naam leta hai.`,
+`Keep shining ✨
+Tumhara hug meri safe place hai.
+Tumhari baahon me hi ghar lagta hai.
+Kabhi door mat jaana.`,
+`Never give up 💪
+Tum mere din ki smile ho.
+Meri raat ka sukoon ho.
+Meri life ka sabse beautiful person ho.`,
+`Success is yours 🚀
+Mujhe tumhari aadat si ho gayi hai.
+Aur mujhe ye aadat bahut pasand hai.
+Tum mere dil ka favourite insaan ho.`,
+`Stay blessed 🙏
+Tumhare bina main adhuri hoon.
+Tum mere dil ki sabse pyaari jagah ho.
+Life tumhare saath perfect hai.`,
+`Your happiness matters 😍
+Har saal tum aur handsome lagte ho.
+Aur main tumpe aur fida ho jaati hoon.
+Tum sirf mere ho.`,
+`Life is better with you 💫
+Tum meri heartbeat ho.
+Meri smile ka reason ho.
+Mera sab kuch ho.`,
+`Keep smiling 😄
+Tum ho to har problem easy lagti hai.
+Tum ho to life happy lagti hai.
+Tum meri strength ho.`,
+`Enjoy your day 🥳
+Agar mujhe fir se choose karna ho.
+Main har baar tumhe hi choose karungi.
+Tum meri forever ho.`,
+`You deserve love ❤️
+Tumhara naam sunte hi smile aa jaati hai.
+Tumhe dekhte hi dil fast dhadakta hai.
+You are my favourite person.`,
+`Best year ahead 🎯
+Tum mere sapno ka boy ho.
+Meri reality ka best part ho.
+Mujhe tumse bohot pyaar hai.`,
+`Stay awesome 😎
+Tum mere liye sirf special nahi.
+Tum hi meri duniya ho.
+Tumhare bina kuch nahi.`,
+`Lots of hugs 🤗
+Tum meri life ki best story ho.
+Mera favourite chapter ho.
+Mera hamesha wala pyaar ho.`,
+`Hope your wishes come true
+Tumhari awaaz meri favourite sound hai.
+Tumhari baatein mera comfort zone.
+Tum mere dil ke sabse close ho.`,
+`Once again Happy Birthday sweetheart 🎉
+Aaj ka din utna hi special hai.
+Jitne tum mere liye ho.
+Stay with me always.`
+];
+
+// 📸 7 photos
+const photos = [
+"pic1.jpeg","pic2.jpeg","pic3.jpeg",
+"pic4.jpeg","pic5.jpeg","pic6.jpeg","pic7.jpeg"
+];
+
+// 🖼 7 backgrounds
+const backgrounds = [
+"bg1.jpg","bg2.jpg","bg3.jpg",
+"bg4.jpg","bg5.jpg","bg6.jpg","bg7.jpg"
+];
+
+// 📄 CREATE 20 PAGES
+for(let i=0;i<20;i++){
+    pagesBox.innerHTML += `
+    <div class="page ${i==0?'active':''}" id="page${i}">
+        <h1>${messages[i]}</h1>
+        <img src="${photos[i % photos.length]}" class="photo"><br>
+        <img src="https://cdn-icons-png.flaticon.com/512/3468/3468377.png" class="balloon" onclick="nextPage(${i})">
+    </div>`;
+}
+
+document.body.style.backgroundImage = "url('" + backgrounds[0] + "')";
+
+function nextPage(current){
+    document.getElementById("page"+current).classList.remove("active");
+    let next = current + 1;
+    if(next < 20){
+        document.getElementById("page"+next).classList.add("active");
+        document.body.style.backgroundImage = "url('" + backgrounds[next % backgrounds.length] + "')";
+    }
+}
+</script>
+
+</body>
+</html>
